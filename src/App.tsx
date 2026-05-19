@@ -1,5 +1,5 @@
-import GhostMascot from '@/components/GhostMascot';
-import AmbientParticles from '@/components/AmbientParticles';
+import BeautyMascot from '@/components/BeautyMascot';
+import BeautyParticles from '@/components/BeautyParticles';
 import Home from '@/pages/Home';
 
 export default function App() {
@@ -8,11 +8,11 @@ export default function App() {
       {/* Noise texture overlay */}
       <div className="noise-overlay" />
 
-      {/* Ambient floating particles */}
-      <AmbientParticles />
+      {/* Ambient beauty particles (sparkles, hearts, petals) */}
+      <BeautyParticles />
 
-      {/* The interactive ghost mascot */}
-      <GhostMascot />
+      {/* The interactive beauty mascot */}
+      <BeautyMascot />
 
       {/* Page content */}
       <Home />
