@@ -55,6 +55,7 @@ export interface GhoulConfig {
   marketSize: string;
   traction: { label: string; value: string; status: 'complete' | 'in-progress' | 'upcoming' }[];
   ipStatus: string;
+  ipClasses: string[];
   roadmap: { phase: string; title: string; items: string[]; status: 'complete' | 'in-progress' | 'upcoming' }[];
 }
 
@@ -278,7 +279,12 @@ export const config: GhoulConfig = {
     { label: "Trademark", value: "IP Australia — Accepted", status: "complete" },
     { label: "Retail", value: "In Negotiation", status: "in-progress" },
   ],
-  ipStatus: "Trademark accepted — Class 3 (cleaning products). Independent brand filing complete.",
+  ipStatus: "Trademark filed — Class 3 (cosmetics & beauty preparations) and Class 21 (beauty appliances & utensils).",
+  ipClasses: [
+    "Class 3 — Cosmetics, skincare & beauty preparations",
+    "Class 21 — Beauty appliances, cosmetic utensils",
+    "Class 35 — Retail store services for beauty products",
+  ],
   roadmap: [
     { phase: "Phase 1", title: "Brand Launch", items: ["6 sites live", "54 SKUs formulated", "GOO RUNNER game launched"], status: "complete" },
     { phase: "Phase 2", title: "Retail Partnerships", items: ["Sephora AU", "Mecca", "Adore Beauty"], status: "in-progress" },
