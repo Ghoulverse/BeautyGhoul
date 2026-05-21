@@ -4,8 +4,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Twitter, Instagram, Youtube, ArrowRight, Gamepad2,
   Ghost, ExternalLink, Sparkles, Gem, Crown, Diamond,
+  Briefcase, Building2,
 } from 'lucide-react';
 import { config } from '@/data/ghoul.config';
+import BeautyMascot from '@/components/BeautyMascot';
+import BeautyParticles from '@/components/BeautyParticles';
+import EcosystemMap from '@/components/EcosystemMap';
+import MarketStats from '@/components/MarketStats';
+import IPBadge from '@/components/IPBadge';
+import RoadmapTimeline from '@/components/RoadmapTimeline';
+import InvestorCTA from '@/components/InvestorCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +39,10 @@ export default function Home() {
   const gameRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const ecosystemRef = useRef<HTMLDivElement>(null);
+  const marketRef = useRef<HTMLDivElement>(null);
+  const ipRef = useRef<HTMLDivElement>(null);
+  const roadmapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,7 +78,7 @@ export default function Home() {
       }
 
       // Reveals
-      [editorialRef, scienceRef, productRef, maisonRef, gameRef, portfolioRef, ctaRef].forEach((ref) => {
+      [editorialRef, ecosystemRef, scienceRef, productRef, maisonRef, gameRef, marketRef, ipRef, roadmapRef, portfolioRef, ctaRef].forEach((ref) => {
         if (ref.current) {
           gsap.from(ref.current.querySelectorAll('.reveal'), {
             y: 50,
@@ -86,6 +98,7 @@ export default function Home() {
 
   return (
     <div className="relative font-cormorant min-h-screen overflow-x-hidden" style={{ background: '#faf7f2' }}>
+      <BeautyParticles />
       {/* Gold shimmer overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]"
         style={{
@@ -117,6 +130,9 @@ export default function Home() {
             className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-[#78716c] hover:text-[#a855f7] transition-colors">
             GHOULVERSE <ExternalLink className="w-3 h-3" />
           </a>
+          <a href="#ecosystem" className="hidden md:flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] uppercase text-[#78716c] hover:text-[#ec4899] transition-colors">
+            <Briefcase className="w-3 h-3" /> Investors
+          </a>
         </div>
       </nav>
 
@@ -124,7 +140,11 @@ export default function Home() {
       <section ref={heroRef} className="relative min-h-[100dvh] flex items-center px-6 md:px-12">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-24">
           <div className="lg:col-span-7 relative z-10">
-            <div className="hero-accent mb-6">
+            <div className="hero-accent mb-6 flex flex-col gap-3">
+              <a href="https://www.ghoulverse.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-[10px] font-bold tracking-[0.4em] uppercase border-2 border-[#f59e0b]/40 text-[#f59e0b] hover:border-[#f59e0b] hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all">
+                <Building2 className="w-3 h-3" />
+                House of GHOUL
+              </a>
               <span className="inline-block text-[10px] font-bold tracking-[0.4em] uppercase text-[#ec4899] px-3 py-1.5 border border-[#ec4899]/20">
                 La Collection de Beauté
               </span>
@@ -150,11 +170,11 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="hero-accent aspect-[3/4] relative overflow-hidden"
+            <div className="hero-accent aspect-[3/4] relative overflow-hidden flex items-center justify-center"
               style={{ background: 'linear-gradient(135deg, rgba(236,72,153,0.08), rgba(168,85,247,0.08))' }}>
               <div className="absolute inset-8 border" style={{ borderColor: '#ec489920' }} />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-[12rem] opacity-[0.06]" style={{ filter: 'blur(2px)' }}>{config.icon}</span>
+              <div className="w-56 h-56 md:w-72 md:h-72">
+                <BeautyMascot />
               </div>
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="font-playfair text-xs text-[#78716c]/60 tracking-wider uppercase">No. 001</p>
@@ -190,19 +210,33 @@ export default function Home() {
               Smudged liner at 3am. Glitter in your coffee. A tube of crimson lipstick that won't come off your collar. We don't judge the aftermath. We perfect it.
             </p>
 
-            <div className="reveal grid grid-cols-3 gap-6">
+            <div className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { value: '100%', label: 'Radiance', color: '#ec4899' },
                 { value: '0', label: 'Stains Left', color: '#a855f7' },
                 { value: '∞', label: 'Transformations', color: '#fbbf24' },
+                { value: '6', label: 'HOUSE OF GHOUL', color: '#f59e0b', sub: 'Live brands' },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="font-playfair text-3xl text-[#292524] mb-1">{stat.value}</div>
                   <div className="text-[10px] tracking-[0.2em] uppercase text-[#78716c]">{stat.label}</div>
+                  {stat.sub && <div className="text-[9px] tracking-wider text-[#78716c]/60 mt-1">{stat.sub}</div>}
                 </div>
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== ECOSYSTEM ===== */}
+      <section ref={ecosystemRef} id="ecosystem" className="relative py-24 md:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="reveal text-center mb-12">
+            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#ec4899] mb-4 block">The Portfolio</span>
+            <h2 className="font-playfair text-4xl md:text-6xl text-[#292524] mb-4">THE ECOSYSTEM</h2>
+            <p className="text-[#78716c] max-w-lg mx-auto font-cormorant">6 independent brands. 54 products. 1 universe. 1 game. Built on shared IP.</p>
+          </div>
+          <div className="reveal"><EcosystemMap /></div>
         </div>
       </section>
 
@@ -235,6 +269,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== IP PORTFOLIO ===== */}
+      <section ref={ipRef} id="ip" className="relative">
+        <div className="reveal"><IPBadge /></div>
+      </section>
+
       {/* ===== PRODUCTS ===== */}
       <section ref={productRef} id="collection" className="relative py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -251,7 +290,7 @@ export default function Home() {
               const count = config.products.filter((p) => p.category === tab.key).length;
               return (
                 <button key={tab.key} onClick={() => setActiveTab(tab.key)}
-                  className="px-6 py-2.5 text-xs font-bold tracking-wider uppercase transition-all"
+                  className="px-6 py-2.5 text-xs font-bold tracking-wider uppercase transition-all min-h-11"
                   style={{
                     background: isActive ? 'linear-gradient(135deg, #ec4899, #a855f7)' : 'transparent',
                     color: isActive ? '#fff' : '#78716c',
@@ -287,7 +326,7 @@ export default function Home() {
                     <span className="text-[9px] tracking-[0.3em] uppercase text-[#78716c]/50">{product.category}</span>
                   </div>
 
-                  <h3 className="font-playfair text-xl text-[#292524] mb-2">{product.name}</h3>
+                  <h3 className="font-playfair text-xl text-[#292524] mb-2 break-words">{product.name}</h3>
                   <p className="text-[#ec4899] text-xs font-bold mb-4 italic">{product.tagline}</p>
                   <p className="text-[#78716c] text-sm leading-relaxed mb-6 font-cormorant">{product.description}</p>
 
@@ -313,6 +352,16 @@ export default function Home() {
             })}
           </div>
         </div>
+      </section>
+
+      {/* ===== MARKET & TRACTION ===== */}
+      <section ref={marketRef} id="market" className="relative">
+        <div className="reveal"><MarketStats /></div>
+      </section>
+
+      {/* ===== ROADMAP ===== */}
+      <section ref={roadmapRef} id="roadmap" className="relative">
+        <div className="reveal"><RoadmapTimeline /></div>
       </section>
 
       {/* ===== MAISON (LINEUP) ===== */}
@@ -397,11 +446,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== INVESTOR CTA ===== */}
+      <InvestorCTA />
+
       {/* ===== CTA / FOOTER ===== */}
       <section ref={ctaRef} className="relative py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-2xl mx-auto text-center">
           <div className="reveal mb-10">
-            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#ec4899] mb-4 block">Investor Relations</span>
+            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#ec4899] mb-4 block">Stay in the Loop</span>
             <h2 className="font-playfair text-4xl md:text-5xl text-[#292524] mb-4">{config.cta.headline}</h2>
             <p className="text-[#78716c] font-cormorant">{config.cta.subheadline}</p>
           </div>
@@ -432,13 +484,17 @@ export default function Home() {
 
           <div className="reveal mb-8 flex items-center justify-center gap-4 text-xs font-cormorant">
             <a href={GHOULVERSE_LINK?.domain || '#'} target="_blank" rel="noopener noreferrer"
-              className="text-[#78716c] hover:text-[#ec4899] transition-colors flex items-center gap-1">
+              className="text-[#78716c] hover:text-[#ec4899] transition-colors flex items-center gap-1 py-2 px-3 min-h-11">
               <Ghost className="w-3 h-3" /> Explore GHOULVERSE
             </a>
             <span className="text-[#78716c]/15">|</span>
             <a href={config.gameUrl} target="_blank" rel="noopener noreferrer"
-              className="text-[#78716c] hover:text-[#a855f7] transition-colors flex items-center gap-1">
+              className="text-[#78716c] hover:text-[#a855f7] transition-colors flex items-center gap-1 py-2 px-3 min-h-11">
               <Gamepad2 className="w-3 h-3" /> Play GHOULVERSE
+            </a>
+            <span className="text-[#78716c]/15">|</span>
+            <a href="#ecosystem" className="text-[#78716c] hover:text-[#f59e0b] transition-colors flex items-center gap-1 tracking-wider py-2 px-3 min-h-11">
+              <Briefcase className="w-3 h-3" /> Investors
             </a>
           </div>
 
