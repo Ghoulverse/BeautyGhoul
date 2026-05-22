@@ -322,7 +322,7 @@ export const config: GhoulConfig = {
     { label: "GHOULVERSE Game", value: "Live", status: "complete" },
     { label: "Brand Partnerships", value: "Seeking First Deals", status: "upcoming" },
   ],
-  ipStatus: "Trademark filed — Class 3 (cosmetics & beauty preparations) and Class 21 (beauty appliances & utensils).",
+  ipStatus: "Trademark classes identified — Class 3 (cosmetics & beauty preparations) and Class 21 (beauty appliances & utensils). Filing planned post-funding.",
   ipClasses: [
     "Class 3 — Cosmetics, skincare & beauty preparations",
     "Class 21 — Beauty appliances, cosmetic utensils",

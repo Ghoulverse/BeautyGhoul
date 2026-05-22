@@ -44,7 +44,7 @@ const SPEECH_LINES = [
   "Too glam to give a damn!",
 ];
 
-function BeautyGhostSVG({ expression, isHovered }: {
+export function BeautyGhostSVG({ expression, isHovered }: {
   expression: number;
   isHovered: boolean;
 }) {
@@ -223,7 +223,7 @@ function BeautyGhostSVG({ expression, isHovered }: {
 
 export default function BeautyMascot() {
   const { x, y, isMoving, velocity } = useBeautyCursor();
-  const [expression, setExpression] = useState(0);
+  const [_expression, setExpression] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [speechBubble, setSpeechBubble] = useState('');
   const [glamMode, setGlamMode] = useState(false);
@@ -572,7 +572,18 @@ export default function BeautyMascot() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <BeautyGhostSVG expression={expression} isHovered={isHovered} />
+          <img
+            src="/ghoul_logo.png"
+            alt="BEAUTY GHOUL"
+            className="w-full h-full object-contain"
+            draggable={false}
+            style={{
+              filter: isHovered
+                ? 'brightness(1.15) drop-shadow(0 0 20px rgba(236,72,153,0.5)) drop-shadow(0 0 40px rgba(212,165,116,0.3))'
+                : undefined,
+              transition: 'filter 0.3s ease',
+            }}
+          />
         </div>
       </div>
     </>
