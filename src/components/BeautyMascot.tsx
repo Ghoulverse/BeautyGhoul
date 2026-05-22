@@ -236,8 +236,9 @@ export default function BeautyMascot() {
   const clickCountRef = useRef(0);
   const typedRef = useRef('');
   const posHistoryRef = useRef<{ x: number; y: number }[]>([]);
+  const cursorRef = useRef({ x, y, isMoving, velocity, mascotSize: 0, glamMode });
 
-  const mascotSize = typeof window !== 'undefined' && window.innerWidth < 768 ? 90 : 140;
+  const mascotSize = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
 
   const spawnSparkles = useCallback((cx: number, cy: number, count = 30) => {
     for (let i = 0; i < count; i++) {
@@ -337,6 +338,8 @@ export default function BeautyMascot() {
     if (posHistoryRef.current.length > 18) posHistoryRef.current.shift();
   }, [x, y]);
 
+  cursorRef.current = { x, y, isMoving, velocity, mascotSize, glamMode };
+
   // Animation loop
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -354,6 +357,7 @@ export default function BeautyMascot() {
     let sparkleTimer = 0;
 
     const animate = () => {
+      const { x, y, isMoving, velocity, mascotSize, glamMode } = cursorRef.current;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Trail sparkles on movement
@@ -505,7 +509,7 @@ export default function BeautyMascot() {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('resize', resize);
     };
-  }, [x, y, isMoving, velocity, mascotSize, glamMode]);
+  }, []);
 
   return (
     <>
@@ -579,7 +583,7 @@ export default function BeautyMascot() {
             draggable={false}
             style={{
               filter: isHovered
-                ? 'brightness(1.15) drop-shadow(0 0 20px rgba(236,72,153,0.5)) drop-shadow(0 0 40px rgba(212,165,116,0.3))'
+                ? 'brightness(1.15)'
                 : undefined,
               transition: 'filter 0.3s ease',
             }}
