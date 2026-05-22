@@ -7,7 +7,6 @@ import {
   Briefcase, Building2,
 } from 'lucide-react';
 import { config } from '@/data/ghoul.config';
-import BeautyMascot from '@/components/BeautyMascot';
 import BeautyParticles from '@/components/BeautyParticles';
 import EcosystemMap from '@/components/EcosystemMap';
 import MarketStats from '@/components/MarketStats';
@@ -171,7 +170,7 @@ export default function Home() {
               style={{ background: 'linear-gradient(135deg, rgba(236,72,153,0.08), rgba(168,85,247,0.08))' }}>
               <div className="absolute inset-8 border" style={{ borderColor: '#ec489920' }} />
               <div className="w-56 h-56 md:w-72 md:h-72">
-                <BeautyMascot />
+                <img src="/ghoul_mascot.png" alt="BeautyGhoul mascot" className="w-full h-full object-contain" draggable={false} style={{ animation: 'ghost-bob 2.5s ease-in-out infinite, ghost-sway 3.5s ease-in-out infinite' }} />
               </div>
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="font-playfair text-xs text-[#78716c]/60 tracking-wider uppercase">No. 001</p>
