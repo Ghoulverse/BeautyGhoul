@@ -117,10 +117,7 @@ export default function Home() {
         style={{ background: 'rgba(250,247,242,0.9)', backdropFilter: 'blur(16px)' }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full border flex items-center justify-center"
-              style={{ borderColor: '#ec489940' }}>
-              <span className="text-lg">{config.icon}</span>
-            </div>
+            <img src="/ghoul_logo.png" alt={config.name} className="w-10 h-10 object-contain" draggable={false} />
             <div>
               <span className="font-playfair text-sm tracking-[0.25em] text-[#292524] block">{config.name}</span>
               <span className="text-[9px] tracking-[0.3em] uppercase text-[#78716c]">Paris</span>

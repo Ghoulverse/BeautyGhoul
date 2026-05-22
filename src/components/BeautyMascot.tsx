@@ -573,7 +573,7 @@ export default function BeautyMascot() {
           onMouseLeave={() => setIsHovered(false)}
         >
           <img
-            src="/ghoul_logo.png"
+            src="/ghoul_mascot.png"
             alt="BEAUTY GHOUL"
             className="w-full h-full object-contain"
             draggable={false}
