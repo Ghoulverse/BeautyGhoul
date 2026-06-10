@@ -565,7 +565,7 @@ export default function BeautyMascot() {
         )}
 
         <div
-          className="relative pointer-events-auto cursor-pointer"
+          className="relative pointer-events-none cursor-default"
           style={{
             width: mascotSize,
             height: mascotSize,
