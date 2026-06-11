@@ -1,4 +1,4 @@
-name: Deploy GOOGHOUL to Cloudflare Pages
+name: Deploy BEAUTY GHOUL to Cloudflare Pages
 
 on:
   push:
