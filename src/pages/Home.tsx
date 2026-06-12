@@ -404,7 +404,7 @@ export default function Home() {
             <div className="absolute top-6 left-6 right-6 bottom-6 border pointer-events-none" style={{ borderColor: '#ec489910' }} />
             <Gamepad2 className="w-10 h-10 text-[#ec4899] mx-auto mb-6" />
             <h2 className="font-playfair text-4xl md:text-5xl text-[#292524] mb-4">Play GHOULVERSE</h2>
-            <p className="text-[#78716c] font-cormorant max-w-md mx-auto mb-8">Pilot {config.name} through the Void. Battle bacteria, unlock all 8 ghouls, claim the leaderboard.</p>
+            <p className="text-[#78716c] font-cormorant max-w-md mx-auto mb-8">Pilot {config.name} through the Void. Race through the Void, unlock every ghoul, claim the leaderboard.</p>
             <a href={config.gameUrl} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 font-playfair text-sm tracking-wider uppercase text-white transition-all hover:scale-[1.02]"
               style={{ background: 'linear-gradient(135deg, #ec4899, #a855f7)', boxShadow: '0 8px 30px rgba(236,72,153,0.25)' }}>

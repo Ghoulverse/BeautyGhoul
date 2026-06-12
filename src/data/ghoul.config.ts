@@ -69,9 +69,8 @@ export interface GhoulConfig {
 export const config: GhoulConfig = {
   id: "beauty",
   name: "BEAUTY GHOUL",
-  tagline: "Glamour Without The Grime",
-  description:
-    "Beauty is chaos refined. BEAUTY GHOUL transforms your vanity from battlefield to sanctuary.",
+  tagline: "Glamour With A Conscience",
+  description: "The cosmetics, skincare, and beauty-tools vertical. BEAUTY GHOUL proves that science-backed and eco-conscious can be gorgeous.",
   domain: "https://www.beautyghoul.com",
   icon: "💄",
   isLeader: false,
@@ -278,7 +277,7 @@ export const config: GhoulConfig = {
     },
     {
       id: "scholar",
-      name: "SCHOLAR GHOUL",
+      name: "BOOK GHOUL",
       domain: "https://www.ghoulverse.com/ghouls/scholar/",
       icon: "📚",
       color: "#f97316",
@@ -304,7 +303,7 @@ export const config: GhoulConfig = {
     title: "The Science",
     subtitle: "pH-Balanced Ectoplasm™",
     description: "Every BEAUTY GHOUL product is powered by pH-Balanced Ectoplasm™ — a proprietary enzyme complex calibrated to the skin's natural acidity. This ensures effective cleansing without compromising the delicate surfaces of cosmetics, tools, and vanity materials.",
-    adaptation: "For the glamour dimension, we developed a gentle variant that respects pH-sensitive materials — natural bristles, cosmetic pigments, and delicate stone — while delivering surgical-grade sanitation.",
+    adaptation: "For the glamour dimension, we developed formulations that respect pH-sensitive materials — natural bristles, cosmetic pigments, and delicate stone — while delivering performance you can trust.",
     stats: [
       { label: "pH Calibration", value: "5.5" },
       { label: "Bacteria Elimination", value: "99.9%" },
@@ -332,7 +331,7 @@ export const config: GhoulConfig = {
     { phase: "Phase 2", title: "Mascot Creation", items: ["24 professional mascots (2 per ghoul)", "$120K investment across 12 characters"], status: "upcoming" },
     { phase: "Phase 3", title: "Partnerships & Revenue", items: ["Sector sponsorships", "Affiliate deals", "Event appearances", "Influencer recruitment"], status: "upcoming" },
     { phase: "Phase 4", title: "Entertainment Scale", items: ["Animated series pilot", "Convention circuit", "Merchandise licensing"], status: "upcoming" },
-    { phase: "Phase 5", title: "Product Launch", items: ["GOO GHOUL household cleaners", "Vertical-specific product lines"], status: "upcoming" },
+    { phase: "Phase 5", title: "Product Launch", items: ["GOO GHOUL flagship household line", "Vertical-specific owned product lines"], status: "upcoming" },
   ],
 
   fundingAsk: "$250,000 AUD",
@@ -357,6 +356,6 @@ export const config: GhoulConfig = {
     { stream: "Licensing", description: "Character IP licensing to brands", timeline: "Year 2" },
     { stream: "Merchandise", description: "Royalties on plush, apparel, accessories", timeline: "Year 2" },
     { stream: "Animation", description: "YouTube/streaming ad revenue, distribution deals", timeline: "Year 2" },
-    { stream: "Products", description: "Owned product lines (GOO GHOUL cleaners first)", timeline: "Year 3" },
+    { stream: "Products", description: "Owned product lines launched per vertical, starting with GOO GHOUL", timeline: "Year 3" },
   ],
 };
